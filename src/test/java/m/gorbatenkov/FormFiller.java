@@ -40,15 +40,15 @@ public class FormFiller {
         $(byText("Gurgaon")).click();
         $("#submit").click();
 
-        $(".table-responsive").find(withText("Name")).parent().shouldHave(text("Mary Sue"));
-        $(".table-responsive").find(withText("Email")).parent().shouldHave(text("Mary@sue.org"));
-        $(".table-responsive").find(withText("Gender")).parent().shouldHave(text("Female"));
-        $(".table-responsive").find(withText("Mobile")).parent().shouldHave(text("7000000000"));
-        $(".table-responsive").find(withText("Birth")).parent().shouldHave(text("21 May,1984"));
-        $(".table-responsive").find(withText("Subjects")).parent().shouldHave(text("Maths"));
-        $(".table-responsive").find(withText("Hobbies")).parent().shouldHave(text("Reading"));
-        $(".table-responsive").find(withText("Picture")).parent().shouldHave(text("sampleFile.jpeg"));
-        $(".table-responsive").find(withText("Address")).parent().shouldHave(text("Kailua, Hawaii 96734"));
-        $(".table-responsive").find(byText("State and City")).parent().shouldHave(text("NCR Gurgaon"));
+        $("tbody").find(withText("Name")).parent().shouldHave(text("Mary Sue"));
+        $("tbody").find(withText("Email")).parent().shouldHave(text("Mary@sue.org"));
+        $("tbody").find(withText("Gender")).parent().shouldHave(text("Female"));
+        $("tbody").find(withText("Mobile")).parent().shouldHave(text("7000000000"));
+        $("tbody").find(withText("Birth")).parent().shouldHave(text("21 May,1984"));
+        $("tbody").find(withText("Subjects")).parent().shouldHave(text("Maths"));
+        $("tbody").find(withText("Hobbies")).parent().shouldHave(text("Reading"));
+        $("tbody").find(withText("Picture")).parent().shouldHave(text("sampleFile.jpeg"));
+        $("tbody").find(withText("Address")).parent().shouldHave(text("Kailua, Hawaii 96734"));
+        $("tbody").find(byText("State and City")).parent().shouldHave(text("NCR Gurgaon"));
     }
 }
