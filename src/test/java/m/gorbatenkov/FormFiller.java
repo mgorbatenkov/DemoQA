@@ -8,8 +8,8 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selenide.*;
 
 public class FormFiller {
 
@@ -32,7 +32,7 @@ public class FormFiller {
         $(".react-datepicker__day--021").click();
         $("#subjectsInput").setValue("Maths").pressEnter();
         $(byText("Reading")).click();
-        $("#uploadPicture").uploadFile(new File("src/test/java/resources/Logo.png"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/sampleFile.jpeg"));
         $("#currentAddress").setValue("Kailua, Hawaii 96734");
         $("#state").scrollIntoView(true).click();
         $(byText("NCR")).click();
@@ -40,20 +40,15 @@ public class FormFiller {
         $(byText("Gurgaon")).click();
         $("#submit").click();
 
-        $("tbody tr:nth-child(1)").shouldHave(text("Mary Sue"));
-        $("tbody tr:nth-child(2)").shouldHave(text("Mary@sue.org"));
-        $("tbody tr:nth-child(3)").shouldHave(text("Female"));
-        $("tbody tr:nth-child(4)").shouldHave(text("7000000000"));
-        $("tbody tr:nth-child(5)").shouldHave(text("21 May,1984"));
-        $("tbody tr:nth-child(6)").shouldHave(text("Maths"));
-        $("tbody tr:nth-child(7)").shouldHave(text("Reading"));
-        $("tbody tr:nth-child(8)").shouldHave(text("Logo.png"));
-        $("tbody tr:nth-child(9)").shouldHave(text("Kailua, Hawaii 96734"));
-        $("tbody tr:nth-child(10)").shouldHave(text("NCR Gurgaon"));
-
-
-
-
-
+        $(".table-responsive").find(withText("Name")).parent().shouldHave(text("Mary Sue"));
+        $(".table-responsive").find(withText("Email")).parent().shouldHave(text("Mary@sue.org"));
+        $(".table-responsive").find(withText("Gender")).parent().shouldHave(text("Female"));
+        $(".table-responsive").find(withText("Mobile")).parent().shouldHave(text("7000000000"));
+        $(".table-responsive").find(withText("Birth")).parent().shouldHave(text("21 May,1984"));
+        $(".table-responsive").find(withText("Subjects")).parent().shouldHave(text("Maths"));
+        $(".table-responsive").find(withText("Hobbies")).parent().shouldHave(text("Reading"));
+        $(".table-responsive").find(withText("Picture")).parent().shouldHave(text("sampleFile.jpeg"));
+        $(".table-responsive").find(withText("Address")).parent().shouldHave(text("Kailua, Hawaii 96734"));
+        $(".table-responsive").find(byText("State and City")).parent().shouldHave(text("NCR Gurgaon"));
     }
 }
